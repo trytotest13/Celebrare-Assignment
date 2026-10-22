@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,600&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #faf7f2;
+  --color-line: #e7e0d8;
+  --font-display: "Fraunces", Georgia, serif;
+}
+
+/* one motion idea: everything settles into place, like paper laid on a table */
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heart-pop {
+  0% {
+    transform: scale(0.6);
+  }
+  60% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .settle {
+    animation: settle 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--settle-delay, 0ms);
+  }
+  .heart-pop {
+    animation: heart-pop 0.3s ease-out;
+  }
+}
